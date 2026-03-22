@@ -6,6 +6,7 @@ public class Task01EasyAgeClassifier {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int age =  sc.nextInt();
+        sc.close();
         if(age < 0) {
             System.out.println("Invalid input");
         } else if (age >= 0 && age <= 12) {
