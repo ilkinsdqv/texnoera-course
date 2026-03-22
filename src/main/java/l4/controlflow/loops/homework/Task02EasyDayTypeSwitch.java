@@ -5,41 +5,25 @@ import java.util.Scanner;
 public class Task02EasyDayTypeSwitch {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int choice = -1;
-        while(choice != 0) {
-            choice = sc.nextInt();
-            switch (choice) {
-                case 0:
-                    System.out.println("Exiting ...");
-                    sc.close();
-                    break;
-                case 1:
-                    System.out.printf("%d. day of the week is Monday.%n", choice);
-                    break;
-                case 2:
-                    System.out.printf("%d. day of the week is Tuesday.%n", choice);
-                    break;
-                case 3:
-                    System.out.printf("%d. day of the week is Wednesday.%n", choice);
-                    break;
-                case 4:
-                    System.out.printf("%d. day of the week is Thursday.%n", choice);
-                    break;
-                case 5:
-                    System.out.printf("%d. day of the week is Friday.%n", choice);
-                    break;
-                case 6:
-                    System.out.printf("%d. day of the week is Saturday.%n", choice);
-                    break;
-                case 7:
-                    System.out.printf("%d. day of the week is Sunday.%n", choice);
-                    break;
-                default:
-                    System.out.println("Invalid input. (Valid inputs -> 0 (EXIT), 1,2,3,4,5,6,7)");
-                    break;
-            }
+        int day = sc.nextInt();
+        sc.close();
+        String weekDay = switch(day){
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> "Invalid day";
+        };
+        if(day >= 1 && day <= 7){
+            System.out.printf("%d. of the week is %s%n", day, weekDay);
         }
-
-
+        if(day >= 1 && day <= 5){
+            System.out.printf(weekDay + " is a Weekday");
+        }else if(day >= 6 && day <= 7){
+            System.out.printf(weekDay + " is a Weekend");
+        }
     }
 }
