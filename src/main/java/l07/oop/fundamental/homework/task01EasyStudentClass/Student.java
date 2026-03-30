@@ -1,4 +1,4 @@
-package l07.oop.fundamental.homework.Task01EasyStudentClass;
+package l07.oop.fundamental.homework.task01EasyStudentClass;
 
 public class Student {
     public String name;

@@ -1,4 +1,4 @@
-package l07.oop.fundamental.homework.Task02EasyRectangleModel;
+package l07.oop.fundamental.homework.task02EasyRectangleModel;
 
 public class Rectangle {
     public double width;
