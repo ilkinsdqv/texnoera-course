@@ -1,4 +1,4 @@
-package l9.oop.inheritance.objectclass.homework;
+package l9.oop.inheritance.objectclass.homework.task09;
 
 import java.time.LocalDate;
 

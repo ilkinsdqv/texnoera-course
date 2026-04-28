@@ -1,4 +1,4 @@
-package l9.oop.inheritance.objectclass.homework;
+package l9.oop.inheritance.objectclass.homework.task09;
 
 public class Person {
     private int age;
