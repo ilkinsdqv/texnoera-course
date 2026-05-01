@@ -32,7 +32,12 @@ public class Main {
                         username = input.nextLine();
                         System.out.println("Enter password:");
                         password = input.nextLine();
-                        login = Authentication.login(username, password);
+                        try {
+                            login = Authentication.login(username, password);
+                        } catch (Exception e) {
+                            login = false;
+                            System.out.println(e.getMessage());
+                        }
                     }else{
                         System.out.println("Already logged in. Please logout first.");
                     }

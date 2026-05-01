@@ -1,5 +1,9 @@
 package smartTodoSystem;
 
+import smartTodoSystem.exception.IncorrectPasswordException;
+import smartTodoSystem.exception.InvalidUsernameException;
+import smartTodoSystem.exception.UserNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,15 +29,17 @@ public class Authentication {
         users.add(user);
     }
 
-    public static boolean login(String username, String password) {
+    public static boolean login(String username, String password) throws UserNotFoundException {
         User user = findUserByUsername(username);
-        if (user != null && user.getPassword().equals(password)) {
+        if(user == null) {
+            throw new InvalidUsernameException();
+        }
+        if (user.getPassword().equals(password)) {
             System.out.println("Login successful for user: " + username);
             currentUser = user;
             return true;
-        } else {
-            System.out.println("Login failed for user: " + username);
-            return false;
+        } else{
+            throw new IncorrectPasswordException();
         }
     }
 
@@ -42,13 +48,12 @@ public class Authentication {
         currentUser = null;
     }
 
-    public static User findUserByUsername(String username) {
+    public static User findUserByUsername(String username){
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
         }
-        System.out.println("User not found: " + username);
         return null;
     }
 
