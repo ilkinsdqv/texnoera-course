@@ -1,26 +1,22 @@
 package smartTodoSystem;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
-    //📦 Field-lər:
-    //id → unikal istifadəçi nömrəsi
-    //username → istifadəçi adı
-    //password → giriş şifrəsi
-    //List<Task> tasks → istifadəçinin task siyahısı
-    //2.2 User Behaviour
-    //register ola bilər
-    //login ola bilər
-    //logout edə bilər
-    //yalnız öz task-larını idarə edir
-    private final int id;
+public class User implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+    private int id;
     private String username;
     private String password;
     private List<Task> tasks = new ArrayList<>();
-    private static int idCounter = 0;
-    public User(String username, String password) {
-        this.id = idCounter++;
+    public User(String username, String password, int id) {
+        this.id = id;
         this.username = username;
         this.password = password;
     }
