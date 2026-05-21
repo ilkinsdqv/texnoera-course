@@ -6,22 +6,14 @@ import smartTodoSystem.enums.Status;
 import java.time.LocalDateTime;
 
 public class Task {
-    //📦 Field-lər:
-    //id → task nömrəsi
-    //title → işin adı
-    //description → iş haqqında izah
-    //status → task vəziyyəti
-    //priority → vaciblik dərəcəsi
-    //deadline → son tarix (optional)
     private final int id;
     private String title;
     private String description;
     private Status status;
     private Priority priority;
     private LocalDateTime deadline;
-    private static int idCounter = 0;
-    public Task(String title, String description, Priority priority, LocalDateTime deadline) {
-        this.id = idCounter++;
+    public Task(String title, String description, Priority priority, LocalDateTime deadline, int id) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.priority = priority;
@@ -55,5 +47,21 @@ public class Task {
                 ", priority=" + priority +
                 ", deadline=" + deadline +
                 '}';
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public LocalDateTime getDeadline() {
+        return deadline;
     }
 }
